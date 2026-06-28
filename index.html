@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Paper Reading Dashboard</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="page">
+    <header class="page-header">
+      <h1>Paper Reading Dashboard</h1>
+      <p>Track papers, research questions, methods, findings, and your own reading notes.</p>
+    </header>
+
+    <section class="panel">
+      <h2 id="form-title">Add a Paper</h2>
+      <form id="paper-form">
+        <label>
+          Paper Title
+          <input type="text" id="paper-title" required>
+        </label>
+
+        <label>
+          Paper Link
+          <input type="url" id="paper-link" placeholder="https://example.com/paper" required>
+        </label>
+
+        <label>
+          Research Question
+          <textarea id="research-question" rows="3"></textarea>
+        </label>
+
+        <label>
+          Data
+          <textarea id="paper-data" rows="3"></textarea>
+        </label>
+
+        <label>
+          Method
+          <textarea id="paper-method" rows="3"></textarea>
+        </label>
+
+        <label>
+          Findings
+          <textarea id="paper-findings" rows="3"></textarea>
+        </label>
+
+        <label>
+          My Notes
+          <textarea id="paper-notes" rows="3"></textarea>
+        </label>
+
+        <label>
+          Status
+          <select id="paper-status">
+            <option value="To Read">To Read</option>
+            <option value="Reading">Reading</option>
+            <option value="Reviewed">Reviewed</option>
+          </select>
+        </label>
+
+        <label>
+          Original PDF
+          <input type="file" id="paper-pdf" accept="application/pdf,.pdf">
+        </label>
+
+        <div class="form-actions">
+          <button type="submit" id="submit-paper">Add Paper</button>
+          <button type="button" id="cancel-edit" class="secondary-button hidden">Cancel Edit</button>
+        </div>
+      </form>
+    </section>
+
+    <section class="panel">
+      <h2>Filter Papers</h2>
+      <div class="filters">
+        <label>
+          Status
+          <select id="status-filter">
+            <option value="All">All</option>
+            <option value="To Read">To Read</option>
+            <option value="Reading">Reading</option>
+            <option value="Reviewed">Reviewed</option>
+          </select>
+        </label>
+
+        <label>
+          Search Paper Title or Method
+          <input type="search" id="search-filter" placeholder="Type keywords...">
+        </label>
+      </div>
+    </section>
+
+    <section class="papers-section">
+      <div class="section-heading">
+        <div>
+          <h2>Saved Papers</h2>
+          <span id="paper-count">0 papers</span>
+        </div>
+        <button type="button" id="export-csv">Export CSV</button>
+      </div>
+      <div id="paper-list" class="paper-list"></div>
+    </section>
+  </main>
+
+  <script src="vendor/html2canvas.min.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
+
